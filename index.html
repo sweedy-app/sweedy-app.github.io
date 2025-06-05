@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      const userAgent = navigator.userAgent;
+
+      const isIOS = /iPhone|iPad|iPod/.test(userAgent);
+      const isAndroid = /Android/.test(userAgent);
+      const isMac = /Mac OS X/.test(userAgent);
+      const isWindows = /Windows/.test(userAgent);
+
+      const currentPageUrl = window.location.href.replace('https://', '');
+
+      let deepLinkUrl = '';
+      let storeUrl = '';
+
+      if (isIOS || isMac) {
+        deepLinkUrl = `sweedy-app://${currentPageUrl}`;
+        storeUrl = 'https://apps.apple.com/app/id1573801727';
+      } else if (isAndroid || isWindows) {
+        const scheme = 'sweedy-app';
+        const package = 'io.nuca.mbti';
+
+        deepLinkUrl = `intent://${currentPageUrl}#Intent;scheme=${scheme};package=${package};end`;
+        storeUrl = `https://play.google.com/store/apps/details?id=${package}`;
+      }
+
+      if (isIOS || isAndroid) {
+        window.location.href = deepLinkUrl;
+
+        setTimeout(() => {
+          window.location.href = storeUrl;
+        }, 1000);
+      } else if (isMac || isWindows) {
+        window.open(storeUrl, '_self');
+      }
+    </script>
+  </body>
+</html>

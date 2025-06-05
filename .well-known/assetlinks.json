@@ -1,0 +1,11 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.nuca.mbti",
+      "sha256_cert_fingerprints":
+        ["09:B2:79:D3:F6:60:92:71:F1:71:87:81:6F:97:77:3B:16:12:F0:E1:BF:11:6F:98:BF:ED:CC:08:57:8C:CC:7A"]
+    }
+  }
+]
