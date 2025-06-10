@@ -15,7 +15,7 @@
       let storeUrl = '';
 
       if (isIOS || isMac) {
-        deepLinkUrl = `sweedy-app://${currentPageUrl}`;
+        deepLinkUrl = window.location.href;
         storeUrl = 'https://apps.apple.com/app/id1573801727';
       } else if (isAndroid || isWindows) {
         const scheme = 'sweedy-app';
